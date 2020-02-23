@@ -21,13 +21,13 @@ export class FormComponent {
     @Inject(SHARED_STATE) private stateEvents: Observable<SharedState>
   ) {
     stateEvents
-    .pipe(map(state => state.mode === MODES.EDIT ? state.id : -1))
+    // .pipe(map(state => state.mode === MODES.EDIT ? state.id : -1))
     // .pipe(distinctUntilChanged())
-    .subscribe(id => {
-      this.editing = id !== -1;
+    .subscribe(update => {
+      this.editing = update.id !== undefined && update.id !== -1;
       this.product = new Product();
-      if (id !== -1) {
-        Object.assign(this.product, this.model.getProduct(id));
+      if (this.editing) {
+        Object.assign(this.product, this.model.getProduct(update.id));
       }
 
     });
