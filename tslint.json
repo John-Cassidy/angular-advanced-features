@@ -18,7 +18,7 @@
     "component-selector": [
       true,
       "element",
-      "pa",
+      "app",
       "camelCase"
     ],
     "import-blacklist": [

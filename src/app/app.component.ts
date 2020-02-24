@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'paRoot',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    // tslint:disable-next-line: component-selector
+    selector: 'app',
+    templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'angular-advanced-features';
-}
+export class AppComponent { }
