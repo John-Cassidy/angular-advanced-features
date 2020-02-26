@@ -36,7 +36,7 @@ export class TermsGuard {
         Promise<boolean> | boolean {
 
         if (route.url.length > 0
-            && route.url[route.url.length - 1].path == 'categories') {
+            && route.url[route.url.length - 1].path === 'categories') {
 
             return new Promise<boolean>((resolve, reject) => {
                 // tslint:disable-next-line: variable-name
