@@ -8,10 +8,12 @@ import { FormComponent } from './core/form.component';
 import { MessageModule } from './messages/message.module';
 import { MessageComponent } from './messages/message.component';
 import { routing } from './app.routing';
+import { TermsGuard } from './terms.guard';
 
 @NgModule({
   imports: [BrowserModule, ModelModule, CoreModule, MessageModule, routing],
   declarations: [AppComponent],
+  providers: [TermsGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
