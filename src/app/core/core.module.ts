@@ -7,10 +7,14 @@ import { FormComponent } from './form.component';
 import { StatePipe } from './state.pipe';
 import { MessageModule } from '../messages/message.module';
 import { RouterModule } from '@angular/router';
+import { ProductCountComponent } from './productCount.component';
+import { CategoryCountComponent } from './categoryCount.component';
+import { NotFoundComponent } from './notFound.component';
 
 @NgModule({
     imports: [BrowserModule, FormsModule, ModelModule, MessageModule, RouterModule],
-    declarations: [TableComponent, FormComponent, StatePipe],
+    declarations: [TableComponent, FormComponent, StatePipe,
+    ProductCountComponent, CategoryCountComponent, NotFoundComponent],
     exports: [ModelModule, TableComponent, FormComponent]
 })
 export class CoreModule { }

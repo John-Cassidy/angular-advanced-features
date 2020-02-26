@@ -16,32 +16,17 @@ export class FormComponent {
   editing: boolean = false;
 
   constructor(
-    private model: Model, activeRoute: ActivatedRoute,
+    private model: Model,
+    activeRoute: ActivatedRoute,
     private router: Router
-    ) {
-
-      // tslint:disable-next-line: no-string-literal
-      this.editing = activeRoute.snapshot.params['mode'] === 'edit';
-
-      // tslint:disable-next-line: no-string-literal
-      let id = activeRoute.snapshot.params['id'];
+  ) {
+    activeRoute.params.subscribe(params => {
+      this.editing = params.mode === 'edit';
+      let id = params['id'];
       if (id != null) {
-        // tslint:disable-next-line: no-string-literal
-        let name = activeRoute.snapshot.params['name'];
-        // tslint:disable-next-line: no-string-literal
-        let category = activeRoute.snapshot.params['category'];
-        // tslint:disable-next-line: no-string-literal
-        let price = activeRoute.snapshot.params['price'];
-
-        if (name != null && category != null && price != null) {
-            this.product.id = id;
-            this.product.name = name;
-            this.product.category = category;
-            this.product.price = Number.parseFloat(price);
-        } else {
-            Object.assign(this.product, model.getProduct(id) || new Product());
-        }
-    }
+        Object.assign(this.product, model.getProduct(+id) || new Product());
+      }
+    });
   }
 
   submitForm(form: NgForm) {
@@ -54,5 +39,4 @@ export class FormComponent {
   resetForm() {
     this.product = new Product();
   }
-
 }
