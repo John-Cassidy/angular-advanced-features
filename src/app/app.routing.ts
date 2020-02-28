@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: 'ondemand',
     loadChildren: './ondemand/ondemand.module#OndemandModule',
-    canLoad: [LoadGuard]
+    // canLoad: [LoadGuard]
   },
   { path: 'form/:mode/:id', component: FormComponent,
     resolve: { model: ModelResolver},
@@ -38,7 +38,8 @@ const routes: Routes = [
   },
   { path: 'table', component: TableComponent, children: childRoutes },
   { path: 'table/:category', component: TableComponent, children: childRoutes },
-  { path: '', redirectTo: '/table', pathMatch: 'full' },
+  // { path: '', redirectTo: '/table', pathMatch: 'full' },
+  { path: '', redirectTo: '/ondemand', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
 
