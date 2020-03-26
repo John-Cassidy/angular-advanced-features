@@ -2,6 +2,7 @@
   "name": "angular-advanced-features",
   "version": "0.0.0",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -11,6 +12,10 @@
     "json": "json-server --p 3500 restData.js"
   },
   "private": true,
+  "resolutions": {
+    "minimist": "^1.2.3",
+    "acorn": "^6.4.1"
+  },
   "dependencies": {
     "@angular/animations": "~8.2.14",
     "@angular/common": "~8.2.14",
