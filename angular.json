@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-advanced-features"
+    }
+  },
+  "defaultProject": "angular-advanced-features",
+  "cli": {
+    "analytics": false
+  }
 }
