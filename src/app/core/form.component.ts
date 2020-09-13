@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   // tslint:disable-next-line: component-selector
   selector: 'paForm',
   templateUrl: 'form.component.html',
-  styleUrls: ['form.component.css']
+  styleUrls: ['form.component.css'],
 })
 export class FormComponent {
   product: Product = new Product();
@@ -17,11 +17,11 @@ export class FormComponent {
   editing: boolean = false;
 
   constructor(
-    private model: Model,
+    public model: Model,
     activeRoute: ActivatedRoute,
     private router: Router
   ) {
-    activeRoute.params.subscribe(params => {
+    activeRoute.params.subscribe((params) => {
       this.editing = params.mode === 'edit';
       let id = params['id'];
       if (id != null) {

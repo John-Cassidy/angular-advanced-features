@@ -25,7 +25,7 @@ const childRoutes: Routes = [
 const routes: Routes = [
   {
     path: 'ondemand',
-    loadChildren: './ondemand/ondemand.module#OndemandModule',
+    loadChildren: () => import('./ondemand/ondemand.module').then(m => m.OndemandModule),
     canLoad: [LoadGuard]
   },
   { path: 'form/:mode/:id', component: FormComponent,
